@@ -33,9 +33,9 @@ class Login(Resource):
 		today = datetime.datetime.today()
 		now = today.strftime('%Y-%m-%d %H:%M:%S')
 		listwork.append(str(now))
-		db.update_one({"id":data['id']},
+		db.update({"id":data['id']},
 			{'$set':
-			{'list_work': listwork}},upsert=True)
+			{'list_work': listwork}})
 		print result,">>",len(listwork)
 		return {'firstname': result['firstname'], 'datetime': now}
 
@@ -43,7 +43,7 @@ class History(Resource):
 	def post(self):
 		args=parser.parse_args()
 		data=json.loads(args['information'])
-		result = db.find_one({'id': data['id']})
+		result = db.find({'id': data['id']})
 		print result
 		print ">>>>>>>>><<<<<<<<<<<<<<<<<"
 		return {'id': result['id'], 'firstname': result['firstname'], 'list_work': result['list_work']}
