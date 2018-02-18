@@ -3,7 +3,7 @@ from flask  import Flask, request, jsonify
 from flask_restful import Resource, Api, reqparse
 import json, datetime
 
-url = "mongodb://thanachote:12367@localhost:27017/admin"
+url = "mongodb://namwan:namwan3439@localhost:27017/admin"
 client = pymongo.MongoClient(url)
 
 app = Flask(__name__)
