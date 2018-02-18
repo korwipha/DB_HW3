@@ -18,13 +18,10 @@ class Registration(Resource):
 	def post(self):
 		args=parser.parse_args()
 		data=json.loads(args['information'])
-		db.update_one({"id":data['id']},
-			{'$set':
-			{"id":data['id'],
+		db.insert(      {"id":data['id'],
 				"firstname":data['firstname'],
 				"lastname":data['lastname'],
-				"password":data['password']
-			}},upsert=True)
+				"password":data['password']})
 		return{'firstname':data['firstname']}
 
 
