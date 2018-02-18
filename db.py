@@ -29,7 +29,7 @@ class Login(Resource):
 	def post(self):
 		args=parser.parse_args()
 		data=json.loads(args['information'])
-		result = db.find_one({'id': data['id']})
+		result = db.find({'id': data['id']})
 		today = datetime.datetime.today()
 		now = today.strftime('%Y-%m-%d %H:%M:%S')
 		listwork.append(str(now))
