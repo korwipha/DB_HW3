@@ -51,9 +51,9 @@ class History(Resource):
 		print ">>>>>>>>><<<<<<<<<<<<<<<<<"
 		return {'id': result['id'], 'firstname': result['firstname'], 'list_work': result['list_work']}
 
-api.add_resource(Registration,'/api/regis')
-api.add_resource(Login,'/api/login')
-api.add_resource(History,'/api/history')
+api.add_resource(Registration,'/Registration')
+api.add_resource(Login,'/Login')
+api.add_resource(History,'/History')
 
 
 if __name__=='__main__':
